@@ -163,7 +163,7 @@ def send_smtp(msg, address, app_password):
             return
         except smtplib.SMTPAuthenticationError as e:
             raise RuntimeError(f"Gmail rejected the sign-in: {e.smtp_code} "
-                               f"{e.smtp_error.decode(errors='replace')[:200]} | {describe_credentials(address, password)}")
+                               f"{e.smtp_error.decode(errors='replace')[:120]} | {describe_credentials(address, password)}")
         except (smtplib.SMTPServerDisconnected, OSError) as e:
             label = f"port {port}" + (f" {mechanism}" if mechanism else "")
             errors.append(f"{label} at {stage}: {type(e).__name__}: {e}")
@@ -188,6 +188,7 @@ def send_gmail_api(msg, client_id, client_secret, refresh_token):
 
 
 def fail(message):
+    message = " ".join(str(message).split())  # an annotation ends at the first line break
     print(f"::error title=Email not sent::{message}")
     sys.exit(1)
 
