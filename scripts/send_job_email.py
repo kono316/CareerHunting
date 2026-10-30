@@ -151,6 +151,11 @@ def send_gmail_api(msg, client_id, client_secret, refresh_token):
         r.read()
 
 
+def fail(message):
+    print(f"::error title=Email not sent::{message}")
+    sys.exit(1)
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit("usage: send_job_email.py job-scan/latest.json [--preview]")
@@ -165,25 +170,36 @@ def main():
         print(msg.get_body(("plain",)).get_content())
         return
 
-    env = os.environ.get
-    sender = (env("GMAIL_ADDRESS") or "").strip()
-    to = (env("EMAIL_TO") or sender).strip()
+    env = lambda k: (os.environ.get(k) or "").strip()
+    names = ["EMAIL_TO", "GMAIL_ADDRESS", "GMAIL_APP_PASSWORD", "GMAIL_CLIENT_ID", "GMAIL_CLIENT_SECRET", "GMAIL_REFRESH_TOKEN"]
+    present = [k for k in names if env(k)]
+    # Names only, never values, so the run page shows which secrets the workflow received.
+    print(f"::notice title=Secrets found::{', '.join(present) or 'none'}")
+
+    sender = env("GMAIL_ADDRESS")
+    to = env("EMAIL_TO") or sender
     if not to:
-        sys.exit("Set the EMAIL_TO or GMAIL_ADDRESS secret so the script knows where to send the email.")
+        fail("No recipient. Add a GMAIL_ADDRESS (or EMAIL_TO) repository secret.")
     msg["To"] = to
     if sender:
         msg["From"] = sender
 
-    if env("GMAIL_APP_PASSWORD") and sender:
-        send_smtp(msg, sender, env("GMAIL_APP_PASSWORD"))
-        how = "Gmail app password"
-    elif env("GMAIL_CLIENT_ID") and env("GMAIL_CLIENT_SECRET") and env("GMAIL_REFRESH_TOKEN"):
-        send_gmail_api(msg, env("GMAIL_CLIENT_ID"), env("GMAIL_CLIENT_SECRET"), env("GMAIL_REFRESH_TOKEN"))
-        how = "Gmail API"
-    else:
-        sys.exit("No Gmail credentials found. Add GMAIL_ADDRESS + GMAIL_APP_PASSWORD, or "
+    try:
+        if env("GMAIL_APP_PASSWORD") and sender:
+            send_smtp(msg, sender, env("GMAIL_APP_PASSWORD").replace(" ", ""))
+            how = "Gmail app password"
+        elif env("GMAIL_CLIENT_ID") and env("GMAIL_CLIENT_SECRET") and env("GMAIL_REFRESH_TOKEN"):
+            send_gmail_api(msg, env("GMAIL_CLIENT_ID"), env("GMAIL_CLIENT_SECRET"), env("GMAIL_REFRESH_TOKEN"))
+            how = "Gmail API"
+        else:
+            fail("No Gmail credentials found. Add GMAIL_ADDRESS + GMAIL_APP_PASSWORD, or "
                  "GMAIL_CLIENT_ID + GMAIL_CLIENT_SECRET + GMAIL_REFRESH_TOKEN, as repository secrets.")
-    print(f"Sent '{msg['Subject']}' via {how}.")
+    except smtplib.SMTPAuthenticationError as e:
+        fail(f"Gmail rejected the sign-in ({e.smtp_code}). Check that GMAIL_ADDRESS is the account that "
+             "created the app password and that GMAIL_APP_PASSWORD is the 16-character app password.")
+    except Exception as e:  # report the error type and message on the run page
+        fail(f"Sending failed: {type(e).__name__}: {e}")
+    print(f"::notice title=Email sent::'{msg['Subject']}' to {to} via {how}")
 
 
 if __name__ == "__main__":
