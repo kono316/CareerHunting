@@ -15,6 +15,7 @@ import base64
 import html
 import json
 import os
+import re
 import smtplib
 import ssl
 import sys
@@ -128,10 +129,19 @@ def build_message(data):
     return msg
 
 
+def describe_credentials(address, password):
+    """Facts about the secrets that help debugging without revealing them."""
+    looks_gmail = re.fullmatch(r"[A-Za-z0-9._%+-]+@(gmail|googlemail)\.com", address or "", re.I)
+    kind = "letters only" if password.isascii() and password.isalpha() else "includes characters other than letters"
+    return (f"GMAIL_ADDRESS {'looks like a Gmail address' if looks_gmail else 'does not look like name@gmail.com'}; "
+            f"GMAIL_APP_PASSWORD has {len(password)} characters ({kind}; a Google app password is 16 letters)")
+
+
 def send_smtp(msg, address, app_password):
-    """Try Gmail's SSL port first, then STARTTLS on 587 if the connection drops."""
+    """Try Gmail's SSL port, then STARTTLS on 587, then AUTH LOGIN, if the connection drops."""
+    password = "".join(app_password.split())  # drops normal and non-breaking spaces copied from Google's page
     errors = []
-    for port in (465, 587):
+    for port, mechanism in ((465, None), (587, None), (465, "LOGIN")):
         stage = "connect"
         try:
             ctx = ssl.create_default_context()
@@ -142,18 +152,22 @@ def send_smtp(msg, address, app_password):
                 s.ehlo()
                 stage = "starttls"
                 s.starttls(context=ctx)
-                s.ehlo()
             with s:
+                s.ehlo()
+                if mechanism:
+                    s.esmtp_features["auth"] = mechanism
                 stage = "login"
-                s.login(address, app_password)
+                s.login(address, password)
                 stage = "send"
                 s.send_message(msg)
             return
-        except smtplib.SMTPAuthenticationError:
-            raise
+        except smtplib.SMTPAuthenticationError as e:
+            raise RuntimeError(f"Gmail rejected the sign-in: {e.smtp_code} "
+                               f"{e.smtp_error.decode(errors='replace')[:200]} | {describe_credentials(address, password)}")
         except (smtplib.SMTPServerDisconnected, OSError) as e:
-            errors.append(f"port {port} at {stage}: {type(e).__name__}: {e}")
-    raise RuntimeError("; ".join(errors))
+            label = f"port {port}" + (f" {mechanism}" if mechanism else "")
+            errors.append(f"{label} at {stage}: {type(e).__name__}: {e}")
+    raise RuntimeError("; ".join(errors) + " | " + describe_credentials(address, password))
 
 
 def send_gmail_api(msg, client_id, client_secret, refresh_token):
@@ -216,9 +230,6 @@ def main():
         else:
             fail("No Gmail credentials found. Add GMAIL_ADDRESS + GMAIL_APP_PASSWORD, or "
                  "GMAIL_CLIENT_ID + GMAIL_CLIENT_SECRET + GMAIL_REFRESH_TOKEN, as repository secrets.")
-    except smtplib.SMTPAuthenticationError as e:
-        fail(f"Gmail rejected the sign-in ({e.smtp_code}). Check that GMAIL_ADDRESS is the account that "
-             "created the app password and that GMAIL_APP_PASSWORD is the 16-character app password.")
     except Exception as e:  # report the error type and message on the run page
         fail(f"Sending failed: {type(e).__name__}: {e}")
     print(f"::notice title=Email sent::'{msg['Subject']}' to {to} via {how}")
