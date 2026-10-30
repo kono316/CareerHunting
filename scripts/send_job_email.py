@@ -129,9 +129,31 @@ def build_message(data):
 
 
 def send_smtp(msg, address, app_password):
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as s:
-        s.login(address, app_password)
-        s.send_message(msg)
+    """Try Gmail's SSL port first, then STARTTLS on 587 if the connection drops."""
+    errors = []
+    for port in (465, 587):
+        stage = "connect"
+        try:
+            ctx = ssl.create_default_context()
+            if port == 465:
+                s = smtplib.SMTP_SSL("smtp.gmail.com", port, context=ctx, timeout=30)
+            else:
+                s = smtplib.SMTP("smtp.gmail.com", port, timeout=30)
+                s.ehlo()
+                stage = "starttls"
+                s.starttls(context=ctx)
+                s.ehlo()
+            with s:
+                stage = "login"
+                s.login(address, app_password)
+                stage = "send"
+                s.send_message(msg)
+            return
+        except smtplib.SMTPAuthenticationError:
+            raise
+        except (smtplib.SMTPServerDisconnected, OSError) as e:
+            errors.append(f"port {port} at {stage}: {type(e).__name__}: {e}")
+    raise RuntimeError("; ".join(errors))
 
 
 def send_gmail_api(msg, client_id, client_secret, refresh_token):
