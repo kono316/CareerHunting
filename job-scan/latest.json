@@ -1,0 +1,201 @@
+{
+  "date": "2026-10-30",
+  "employersChecked": 73,
+  "trackerUrl": "https://claude.ai/artifact/P8wJqj1crdQHh7CVsx5v3m",
+  "strong": [
+    {
+      "title": "Senior Business Intelligence Analyst - Finance & Accounting",
+      "url": "https://blueorigin.wd5.myworkdayjobs.com/blueorigin/job/Greater-Seattle-Area/Senior-Business-Intelligence-Analyst---Finance---Accounting_R73185",
+      "company": "Blue Origin",
+      "location": "Renton, WA",
+      "workMode": "On-site",
+      "payText": "$145.2k–$203.3k",
+      "why": "Owns BI tool strategy in Power BI/Tableau with Databricks and governance; cost accounting knowledge and US-person status required."
+    },
+    {
+      "title": "Senior Data Engineer, IT Enterprise Data Solutions",
+      "url": "https://gatesfoundation.wd1.myworkdayjobs.com/en-US/Gates/job/Senior-Data-Engineer--IT-Enterprise-Data-Solutions_B021732-1",
+      "company": "Gates Foundation",
+      "location": "Seattle, WA",
+      "workMode": "Hybrid",
+      "payText": "$173.1k–$259.7k",
+      "why": "SQL/Python ELT on Databricks and Snowflake with medallion architecture, governance and Power BI matches your data engineering work."
+    },
+    {
+      "title": "Engineering Manager: Engineering Data Platform Enablement",
+      "url": "https://careers.nordstrom.com/engineering-manager-engineering-data-platform-enablement-hybrid-seattle-wa/job/72FD9F47100D5EFEA7C7CBA7F07A90E3",
+      "company": "Nordstrom",
+      "location": "Seattle, WA",
+      "workMode": "Hybrid",
+      "payText": "$166k–$258k",
+      "why": "Runs the enterprise BI platform incl. Tableau retirement and access management, matching your platform ownership, 3,000-workbook migration and team leadership."
+    },
+    {
+      "title": "Customer Success Manager, Senior Manager - Tableau",
+      "url": "https://salesforce.wd12.myworkdayjobs.com/en-US/External_Career_Site/job/Customer-Success-Manager--Senior-Manager---Tableau_JR332579",
+      "company": "Salesforce (Tableau)",
+      "location": "US (Seattle pay tier)",
+      "workMode": "Hybrid",
+      "payText": "$180.2k–$247.9k",
+      "why": "Tableau Server/Cloud admin, governance and enterprise deployments match your 17 years owning Tableau and the Tableau Cloud migration."
+    },
+    {
+      "title": "Manager, Data Analytics",
+      "url": "https://job-boards.greenhouse.io/hasbro/jobs/4285180009",
+      "company": "Wizards of the Coast (Hasbro)",
+      "location": "Renton, WA",
+      "workMode": "Hybrid",
+      "payText": "$125.9k–$188.9k",
+      "why": "Leads an analytics team on Tableau/Power BI, SQL, Snowflake and governance, like your team of 8 and medallion standard."
+    },
+    {
+      "title": "Principal Business Intelligence Engineer",
+      "url": "https://job-boards.greenhouse.io/hasbro/jobs/4457276009",
+      "company": "Wizards of the Coast (Hasbro)",
+      "location": "Renton, WA",
+      "workMode": "Hybrid",
+      "payText": "$193.3k–$196.3k",
+      "why": "5+ years each of Tableau/Power BI, advanced SQL, data modeling and ETL — your core stack."
+    }
+  ],
+  "good": [
+    {
+      "title": "Lead Data Architect",
+      "url": "https://www.disneycareers.com/en/job/burbank/lead-data-architect/391/96219178672",
+      "company": "Disney",
+      "location": "Seattle, WA / Burbank / Orlando",
+      "workMode": "Hybrid",
+      "payText": "$165.6k–$222k",
+      "why": "Enterprise analytics architecture, governance and Snowflake, close to your Oracle warehouse build and medallion standard."
+    },
+    {
+      "title": "Principal Product Manager, Data Platform Governance",
+      "url": "https://www.disneycareers.com/en/job/seattle/principal-product-manager-data-platform-governance/391/102002678784",
+      "company": "Disney",
+      "location": "Seattle, WA / Santa Monica, CA",
+      "workMode": "Hybrid",
+      "payText": "$200.4k–$268.7k",
+      "why": "Product owner for catalog, semantic layer and Tableau metric definitions, building on your governance standard; asks for 6+ years formal PM."
+    },
+    {
+      "title": "Sr Data Engineer (Disney Experiences)",
+      "url": "https://www.disneycareers.com/en/job/anaheim/sr-data-engineer/391/102011639680",
+      "company": "Disney",
+      "location": "Seattle, WA / Anaheim / Glendale",
+      "workMode": "Hybrid",
+      "payText": "$148.7k–$199.4k",
+      "why": "SQL, Airflow, Snowflake, warehousing and Scrum match your ETL and Oracle warehouse work; AWS is the gap."
+    },
+    {
+      "title": "Lead Platform Engineer",
+      "url": "https://gatesfoundation.wd1.myworkdayjobs.com/en-US/Gates/job/Lead-Platform-Engineer_B021670-1",
+      "company": "Gates Foundation",
+      "location": "Seattle, WA or Washington, DC",
+      "workMode": "Hybrid",
+      "payText": "$209.1k–$324.1k",
+      "why": "Leads the Enterprise Data Platform architecture, security and mentoring, like your platform ownership; gaps in Terraform/Azure and deeper Databricks."
+    },
+    {
+      "title": "Lead, Business Intelligence Analyst - People Analytics",
+      "url": "https://careers.l3harris.com/en/job/united-states/lead-business-intelligence-analyst-people-analytics/4832/95006807728",
+      "company": "L3Harris",
+      "location": "Remote (US)",
+      "workMode": "Remote",
+      "payText": "$129.5k–$240.5k",
+      "why": "Lead BI role on Power BI, SQL, Snowflake and ETL, matching your Power BI ownership and Snowflake work; HR domain, clearance eligibility may apply."
+    },
+    {
+      "title": "Senior Data Analyst (Office of the Chief Economist)",
+      "url": "https://builtin.com/job/senior-data-analyst/11847799",
+      "company": "Microsoft",
+      "location": "Redmond, WA",
+      "workMode": "On-site",
+      "payText": "$106.4k–$203.6k",
+      "why": "Power BI semantic models and DAX on Fabric fit your Power BI environment ownership and SQL data modeling."
+    },
+    {
+      "title": "Senior Data Engineer (Microsoft Business Operations)",
+      "url": "https://www.dice.com/job-detail/b5af850c-b89d-4a3d-9e17-5967f95ee92a",
+      "company": "Microsoft",
+      "location": "Redmond, WA",
+      "workMode": "On-site",
+      "payText": "$119.8k–$234.7k",
+      "why": "Production pipelines, governance/security and Python match your Airflow ETL, medallion standard and SOX platform work."
+    },
+    {
+      "title": "Engineering Manager - Digital Insights",
+      "url": "https://careers.nordstrom.com/engineering-manager-digital-insights-hybrid-seattle/job/DA8020FE38D44B951C3134A442B275D0",
+      "company": "Nordstrom",
+      "location": "Seattle, WA",
+      "workMode": "Hybrid",
+      "payText": "$166k–$258k",
+      "why": "Manages a data engineering team and prefers BI migration leadership, matching your team lead and Tableau Cloud migration; streaming is new."
+    },
+    {
+      "title": "Specialist Solution Engineer (Analytics - Tableau)",
+      "url": "https://salesforce.wd12.myworkdayjobs.com/en-US/External_Career_Site/job/Specialist-Solution-Engineer_JR358388-1",
+      "company": "Salesforce (Tableau)",
+      "location": "Remote US",
+      "workMode": "Remote",
+      "payText": "$173.5k–$232k",
+      "why": "Tableau/Tableau Next presales built on your platform depth, certifications and teaching; posting says applications close 10/30/2026."
+    },
+    {
+      "title": "Director, Engineering - Data Governance & AI Experience",
+      "url": "https://zapply.jobs/jobs/89661151-2678-4d48-958d-53a2910b6891/",
+      "company": "Starbucks",
+      "location": "Seattle, WA",
+      "workMode": "On-site",
+      "payText": "$180k–$240k (aggregator)",
+      "why": "Enterprise data governance plus the insights/BI team, fitting your governance standard and BI leadership; asks for 5+ years leading managers."
+    },
+    {
+      "title": "Data Engineer Sr",
+      "url": "https://zapply.jobs/jobs/6c790b0e-0d3c-430d-a724-abfb7fbd6189/",
+      "company": "Starbucks",
+      "location": "Seattle, WA (4 days on-site)",
+      "workMode": "Hybrid",
+      "payText": "pay not posted",
+      "why": "SQL and cloud data platforms, mentoring, Tableau a plus, matching your ETL depth and SQL teaching; Spark/Scala are gaps."
+    },
+    {
+      "title": "Senior Engineer, Enterprise Data & Analytics Platform",
+      "url": "https://zapply.jobs/jobs/f70bd831-033f-473a-8a56-ffa49ab471df/",
+      "company": "Starbucks",
+      "location": "Seattle, WA",
+      "workMode": "Hybrid",
+      "payText": "pay not posted",
+      "why": "Databricks lakehouse, medallion, Unity Catalog and Genie on the platform he knows, matching your ETL, governance and GenAI work."
+    },
+    {
+      "title": "Staff Software Engineer - Enterprise Data Warehouse (Remote)",
+      "url": "https://careers.homedepot.com/job/23325487/staff-software-engineer-enterprise-data-warehouse-remote-remote/",
+      "company": "The Home Depot",
+      "location": "Remote",
+      "workMode": "Remote",
+      "payText": "$120k–$190k",
+      "why": "Staff-level EDW work with SQL, Python and Airflow matches your Oracle warehouse and Airflow ETL; BigQuery/AtScale new."
+    },
+    {
+      "title": "Director Analytics WOTC",
+      "url": "https://job-boards.greenhouse.io/hasbro/jobs/4249909009",
+      "company": "Wizards of the Coast (Hasbro)",
+      "location": "Renton, WA",
+      "workMode": "Hybrid",
+      "payText": "$195.9k–$293.9k",
+      "why": "10+ years across BI, analytics and data engineering plus team leadership on Tableau/Power BI/Snowflake/Databricks; director level."
+    }
+  ],
+  "stillOpen": [],
+  "couldntCheck": [
+    "Warner Bros. Discovery",
+    "Activision Blizzard",
+    "Costco",
+    "REI",
+    "Chewy",
+    "Netflix",
+    "Seattle Aquarium",
+    "Woodland Park Zoo"
+  ],
+  "note": "First run. Starbucks roles were confirmed only through job boards."
+}

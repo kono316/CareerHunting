@@ -1,0 +1,33 @@
+name: Email job matches
+
+# Runs when the Monday job scan saves a new job-scan/latest.json, or by hand from the Actions tab.
+on:
+  push:
+    branches: [main]
+    paths: ["job-scan/latest.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: email-job-matches
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Send the email
+        run: python scripts/send_job_email.py job-scan/latest.json
+        env:
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
