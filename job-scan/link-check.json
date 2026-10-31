@@ -1,0 +1,146 @@
+{
+  "scanDate": "2026-10-30",
+  "checkedAt": "2026-10-31T02:16:03+00:00",
+  "results": [
+    {
+      "url": "https://blueorigin.wd5.myworkdayjobs.com/blueorigin/job/Greater-Seattle-Area/Senior-Business-Intelligence-Analyst---Finance---Accounting_R73185",
+      "title": "Senior Business Intelligence Analyst - Finance & Accounting",
+      "company": "Blue Origin",
+      "status": "open",
+      "reason": "Workday says the posting is live"
+    },
+    {
+      "url": "https://gatesfoundation.wd1.myworkdayjobs.com/en-US/Gates/job/Senior-Data-Engineer--IT-Enterprise-Data-Solutions_B021732-1",
+      "title": "Senior Data Engineer, IT Enterprise Data Solutions",
+      "company": "Gates Foundation",
+      "status": "closed",
+      "reason": "Workday no longer has this posting"
+    },
+    {
+      "url": "https://careers.nordstrom.com/engineering-manager-engineering-data-platform-enablement-hybrid-seattle-wa/job/72FD9F47100D5EFEA7C7CBA7F07A90E3",
+      "title": "Engineering Manager: Engineering Data Platform Enablement",
+      "company": "Nordstrom",
+      "status": "closed",
+      "reason": "the page returns 404"
+    },
+    {
+      "url": "https://salesforce.wd12.myworkdayjobs.com/en-US/External_Career_Site/job/Customer-Success-Manager--Senior-Manager---Tableau_JR332579",
+      "title": "Customer Success Manager, Senior Manager - Tableau",
+      "company": "Salesforce (Tableau)",
+      "status": "closed",
+      "reason": "Workday no longer has this posting"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/hasbro/jobs/4285180009",
+      "title": "Manager, Data Analytics",
+      "company": "Wizards of the Coast (Hasbro)",
+      "status": "closed",
+      "reason": "Greenhouse no longer has this posting"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/hasbro/jobs/4457276009",
+      "title": "Principal Business Intelligence Engineer",
+      "company": "Wizards of the Coast (Hasbro)",
+      "status": "open",
+      "reason": "Greenhouse says the posting is live"
+    },
+    {
+      "url": "https://www.disneycareers.com/en/job/burbank/lead-data-architect/391/96219178672",
+      "title": "Lead Data Architect",
+      "company": "Disney",
+      "status": "open",
+      "reason": "the page loads"
+    },
+    {
+      "url": "https://www.disneycareers.com/en/job/seattle/principal-product-manager-data-platform-governance/391/102002678784",
+      "title": "Principal Product Manager, Data Platform Governance",
+      "company": "Disney",
+      "status": "open",
+      "reason": "the page loads"
+    },
+    {
+      "url": "https://www.disneycareers.com/en/job/anaheim/sr-data-engineer/391/102011639680",
+      "title": "Sr Data Engineer (Disney Experiences)",
+      "company": "Disney",
+      "status": "open",
+      "reason": "the page loads"
+    },
+    {
+      "url": "https://gatesfoundation.wd1.myworkdayjobs.com/en-US/Gates/job/Lead-Platform-Engineer_B021670-1",
+      "title": "Lead Platform Engineer",
+      "company": "Gates Foundation",
+      "status": "open",
+      "reason": "Workday says the posting is live"
+    },
+    {
+      "url": "https://careers.l3harris.com/en/job/united-states/lead-business-intelligence-analyst-people-analytics/4832/95006807728",
+      "title": "Lead, Business Intelligence Analyst - People Analytics",
+      "company": "L3Harris",
+      "status": "closed",
+      "reason": "the page returns 404"
+    },
+    {
+      "url": "https://builtin.com/job/senior-data-analyst/11847799",
+      "title": "Senior Data Analyst (Office of the Chief Economist)",
+      "company": "Microsoft",
+      "status": "open",
+      "reason": "the page loads"
+    },
+    {
+      "url": "https://www.dice.com/job-detail/b5af850c-b89d-4a3d-9e17-5967f95ee92a",
+      "title": "Senior Data Engineer (Microsoft Business Operations)",
+      "company": "Microsoft",
+      "status": "closed",
+      "reason": "the page returns 410"
+    },
+    {
+      "url": "https://careers.nordstrom.com/engineering-manager-digital-insights-hybrid-seattle/job/DA8020FE38D44B951C3134A442B275D0",
+      "title": "Engineering Manager - Digital Insights",
+      "company": "Nordstrom",
+      "status": "open",
+      "reason": "the page loads"
+    },
+    {
+      "url": "https://salesforce.wd12.myworkdayjobs.com/en-US/External_Career_Site/job/Specialist-Solution-Engineer_JR358388-1",
+      "title": "Specialist Solution Engineer (Analytics - Tableau)",
+      "company": "Salesforce (Tableau)",
+      "status": "closed",
+      "reason": "Workday no longer has this posting"
+    },
+    {
+      "url": "https://zapply.jobs/jobs/89661151-2678-4d48-958d-53a2910b6891/",
+      "title": "Director, Engineering - Data Governance & AI Experience",
+      "company": "Starbucks",
+      "status": "closed",
+      "reason": "the link now redirects away from the posting"
+    },
+    {
+      "url": "https://zapply.jobs/jobs/6c790b0e-0d3c-430d-a724-abfb7fbd6189/",
+      "title": "Data Engineer Sr",
+      "company": "Starbucks",
+      "status": "closed",
+      "reason": "the link now redirects away from the posting"
+    },
+    {
+      "url": "https://zapply.jobs/jobs/f70bd831-033f-473a-8a56-ffa49ab471df/",
+      "title": "Senior Engineer, Enterprise Data & Analytics Platform",
+      "company": "Starbucks",
+      "status": "open",
+      "reason": "the page loads"
+    },
+    {
+      "url": "https://careers.homedepot.com/job/23325487/staff-software-engineer-enterprise-data-warehouse-remote-remote/",
+      "title": "Staff Software Engineer - Enterprise Data Warehouse (Remote)",
+      "company": "The Home Depot",
+      "status": "unknown",
+      "reason": "the site answered 403"
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/hasbro/jobs/4249909009",
+      "title": "Director Analytics WOTC",
+      "company": "Wizards of the Coast (Hasbro)",
+      "status": "closed",
+      "reason": "Greenhouse no longer has this posting"
+    }
+  ]
+}
