@@ -1,14 +1,21 @@
 name: Email job matches
 
 # Runs when the Monday job scan saves a new job-scan/latest.json, or by hand from the Actions tab.
+# Every job link is checked first; closed postings are left out of the email and recorded in
+# job-scan/link-check.json so the Monday scan can mark them closed on the tracker.
 on:
   push:
     branches: [main]
     paths: ["job-scan/latest.json"]
   workflow_dispatch:
+    inputs:
+      check_only:
+        description: "Only check the links, don't send the email"
+        type: boolean
+        default: false
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: email-job-matches
@@ -22,8 +29,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Send the email
-        run: python scripts/send_job_email.py job-scan/latest.json
+      - name: Check links and send the email
+        run: python scripts/send_job_email.py job-scan/latest.json ${{ inputs.check_only && '--check-only' || '' }}
         env:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
@@ -31,3 +38,15 @@ jobs:
           GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
           GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
           GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+      - name: Save the link check results
+        if: always()
+        run: |
+          if [ -f job-scan/link-check.json ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add job-scan/link-check.json
+            if ! git diff --cached --quiet; then
+              git commit -m "Link check for $(python -c "import json;print(json.load(open('job-scan/latest.json')).get('date',''))")"
+              git push
+            fi
+          fi

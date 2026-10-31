@@ -7,9 +7,13 @@ Credentials come from environment variables (GitHub Actions secrets), never from
                                   (+ GMAIL_ADDRESS if you want it shown as the sender)
 Recipient: EMAIL_TO if set, otherwise GMAIL_ADDRESS.
 
+Before sending, every job link is checked (scripts/check_links.py). Closed postings are left out
+of the email, and the results are saved to job-scan/link-check.json for the Monday scan to read.
+
 Usage:
-  python scripts/send_job_email.py job-scan/latest.json            # send
-  python scripts/send_job_email.py job-scan/latest.json --preview  # write preview.html, don't send
+  python scripts/send_job_email.py job-scan/latest.json               # check links, then send
+  python scripts/send_job_email.py job-scan/latest.json --check-only  # check links, don't send
+  python scripts/send_job_email.py job-scan/latest.json --preview     # write preview.html, don't check or send
 """
 import base64
 import html
@@ -21,8 +25,11 @@ import ssl
 import sys
 import urllib.parse
 import urllib.request
-from datetime import date
+from datetime import date, datetime, timezone
 from email.message import EmailMessage
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from check_links import check_link  # noqa: E402
 
 ACCENT = "#1d5e49"
 MUTED = "#5b6b64"
@@ -193,11 +200,44 @@ def fail(message):
     sys.exit(1)
 
 
+def check_and_filter(data, results_path):
+    """Check every link, drop closed postings from the email, and save the results for the Monday scan."""
+    results, closed = [], []
+    for key in ("strong", "good", "stillOpen"):
+        kept = []
+        for j in data.get(key) or []:
+            status, reason = check_link(safe_url(j.get("url")))
+            results.append({"url": j.get("url"), "title": j.get("title"), "company": j.get("company"),
+                            "status": status, "reason": reason})
+            if status == "closed":
+                closed.append(j)
+            else:
+                kept.append(j)
+        data[key] = kept
+    with open(results_path, "w", encoding="utf-8") as f:
+        json.dump({"scanDate": data.get("date"), "checkedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                   "results": results}, f, indent=2, ensure_ascii=False)
+    if closed:
+        names = ", ".join(f"{j.get('title')} ({j.get('company')})" for j in closed)
+        extra = f"Left out {len(closed)} posting{'s' if len(closed) != 1 else ''} that closed after the scan: {names}."
+        data["note"] = f"{data.get('note') or ''} {extra}".strip()
+    counts = {s: sum(r["status"] == s for r in results) for s in ("open", "closed", "unknown")}
+    print(f"::notice title=Link check::{counts['open']} open, {counts['closed']} closed, {counts['unknown']} couldn't be checked")
+    for r in results:
+        if r["status"] != "open":
+            print(f"::warning title=Link {r['status']}::{r['title']} ({r['company']}): {r['reason']}")
+    return data
+
+
 def main():
     if len(sys.argv) < 2:
-        sys.exit("usage: send_job_email.py job-scan/latest.json [--preview]")
+        sys.exit("usage: send_job_email.py job-scan/latest.json [--preview] [--check-only] [--no-check]")
     with open(sys.argv[1], encoding="utf-8") as f:
         data = json.load(f)
+    if "--no-check" not in sys.argv and "--preview" not in sys.argv:
+        data = check_and_filter(data, os.path.join(os.path.dirname(sys.argv[1]) or ".", "link-check.json"))
+    if "--check-only" in sys.argv:
+        return
     msg = build_message(data)
 
     if "--preview" in sys.argv:
