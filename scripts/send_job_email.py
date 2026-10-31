@@ -29,7 +29,7 @@ from datetime import date, datetime, timezone
 from email.message import EmailMessage
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from check_links import check_link  # noqa: E402
+from check_links import check_link, clean_url, is_official  # noqa: E402
 
 ACCENT = "#1d5e49"
 MUTED = "#5b6b64"
@@ -202,15 +202,21 @@ def fail(message):
 
 def check_and_filter(data, results_path):
     """Check every link, drop closed postings from the email, and save the results for the Monday scan."""
-    results, closed = [], []
+    results, closed, unofficial = [], [], []
     for key in ("strong", "good", "stillOpen"):
         kept = []
         for j in data.get(key) or []:
-            status, reason = check_link(safe_url(j.get("url")))
+            j["url"] = clean_url(j.get("url"))
+            if not is_official(j.get("url"), j.get("company")):
+                status, reason = "unofficial", "not the employer's own job site"
+            else:
+                status, reason = check_link(safe_url(j.get("url")))
             results.append({"url": j.get("url"), "title": j.get("title"), "company": j.get("company"),
                             "status": status, "reason": reason})
             if status == "closed":
                 closed.append(j)
+            elif status == "unofficial":
+                unofficial.append(j)
             else:
                 kept.append(j)
         data[key] = kept
@@ -221,8 +227,14 @@ def check_and_filter(data, results_path):
         names = ", ".join(f"{j.get('title')} ({j.get('company')})" for j in closed)
         extra = f"Left out {len(closed)} posting{'s' if len(closed) != 1 else ''} that closed after the scan: {names}."
         data["note"] = f"{data.get('note') or ''} {extra}".strip()
-    counts = {s: sum(r["status"] == s for r in results) for s in ("open", "closed", "unknown")}
-    print(f"::notice title=Link check::{counts['open']} open, {counts['closed']} closed, {counts['unknown']} couldn't be checked")
+    if unofficial:
+        names = ", ".join(f"{j.get('title')} ({j.get('company')})" for j in unofficial)
+        extra = (f"Left out {len(unofficial)} job{'s' if len(unofficial) != 1 else ''} without a link to the "
+                 f"employer's own job site: {names}.")
+        data["note"] = f"{data.get('note') or ''} {extra}".strip()
+    counts = {s: sum(r["status"] == s for r in results) for s in ("open", "closed", "unknown", "unofficial")}
+    print(f"::notice title=Link check::{counts['open']} open, {counts['closed']} closed, "
+          f"{counts['unknown']} couldn't be checked, {counts['unofficial']} not on the employer's own site")
     for r in results:
         if r["status"] != "open":
             print(f"::warning title=Link {r['status']}::{r['title']} ({r['company']}): {r['reason']}")

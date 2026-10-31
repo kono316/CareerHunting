@@ -1,17 +1,8 @@
 {
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "employersChecked": 71,
   "trackerUrl": "https://claude.ai/artifact/P8wJqj1crdQHh7CVsx5v3m",
   "strong": [
-    {
-      "title": "Manager III, Business Intelligence, Robotics Delivery and Packaging Innovation",
-      "url": "https://amazon.jobs/en/jobs/10466600/manager-iii-business-intelligence-robotics-delivery-and-packaging-innovation",
-      "company": "Amazon",
-      "location": "Bellevue, WA",
-      "workMode": "On-site",
-      "payText": "$143.4k–$194k",
-      "why": "Manages a BI engineering team owning source-of-truth metrics in SQL, ETL and Tableau, the BI team leadership and Tableau depth you built at Starbucks."
-    },
     {
       "title": "Senior Manager of Data Engineering & Business Intelligence, Alexa Audio",
       "url": "https://amazon.jobs/en/jobs/10411752/senior-manager-of-data-engineering-business-intelligence-alexa-audio",
@@ -50,7 +41,7 @@
     },
     {
       "title": "Director Data Analytics Manager (MCAPS Core Data & Applied AI)",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393557026758?utm_source=freehire.me",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393557026758",
       "company": "Microsoft",
       "location": "Redmond, WA or Remote US",
       "workMode": "Hybrid",
@@ -68,7 +59,7 @@
     },
     {
       "title": "Sr Manager, Data Engineering",
-      "url": "https://zapply.jobs/jobs/7c650c95-3ef6-4ea7-8916-0bbd726abfba/",
+      "url": "https://tmobile.wd1.myworkdayjobs.com/en-US/External/job/Bellevue-Washington/Sr-Manager--Data-Engineering_REQ380328-1",
       "company": "T-Mobile",
       "location": "Bellevue, WA",
       "workMode": "Not stated",
@@ -105,24 +96,6 @@
       "why": "Automates executive reporting in SQL, Python and Redshift, drawing on your senior BI development background; base tops out just over your floor."
     },
     {
-      "title": "Sr BIE, ASP Business Intelligence",
-      "url": "https://www.amazon.jobs/en/jobs/10553989/sr-bie-asp-business-intelligence",
-      "company": "Amazon",
-      "location": "Seattle, WA",
-      "workMode": "On-site",
-      "payText": "$130.4k–$176.3k + RSUs",
-      "why": "Owns analytics architecture, data governance and AI integration, close to your Tableau governance standard and GenAI projects; base tops out just over your floor."
-    },
-    {
-      "title": "Senior People Analytics Data Analyst",
-      "url": "https://blueorigin.wd5.myworkdayjobs.com/en-US/BlueOrigin/job/Senior-People-Analytics-Data-Analyst_R66787",
-      "company": "Blue Origin",
-      "location": "Location not stated (WA pay range posted)",
-      "workMode": "On-site",
-      "payText": "$134.4k–$188.2k (WA)",
-      "why": "Builds SQL plus Tableau/Power BI dashboards for HR leaders, close to your Diversity Dashboard; confirm the location is Kent/Seattle area."
-    },
-    {
       "title": "Lead Data Architect",
       "url": "https://www.disneycareers.com/en/job/burbank/lead-data-architect/391/96219178672",
       "company": "Disney",
@@ -151,30 +124,12 @@
     },
     {
       "title": "Director, Strategy and Service Insights, Service Intelligence",
-      "url": "https://www.builtinseattle.com/job/director-strategy-and-service-insights-service-intelligence/11908495",
+      "url": "https://careers.expediagroup.com/job/director-strategy-and-service-insights-service-intelligence/seattle-wa/R-110359/",
       "company": "Expedia Group",
       "location": "Seattle, WA",
       "workMode": "Hybrid",
       "payText": "$207.5k–$290.5k total cash",
       "why": "Leads a team of managers presenting insights to executives with Tableau preferred, using your analytics leadership, though it leans toward strategy."
-    },
-    {
-      "title": "Senior Analytics Partner, People Analytics",
-      "url": "https://careers.expediagroup.com/job/senior-analytics-partner-people-analytics/seattle-wa/R-106208",
-      "company": "Expedia Group",
-      "location": "Seattle, WA",
-      "workMode": "Hybrid",
-      "payText": "$173k–$242.5k total cash",
-      "why": "Requires Tableau and SQL for people analytics, where your Diversity Dashboard (60,000+ views) is directly relevant; posting asks for an MS/PhD and pay is total cash."
-    },
-    {
-      "title": "Data Engineer IV",
-      "url": "https://www.seattletechjobs.com/jobs/data-engineer-iv-5aa0ad38",
-      "company": "Fred Hutch Cancer Center",
-      "location": "Seattle, WA",
-      "workMode": "On-site",
-      "payText": "$133.3k–$210.7k",
-      "why": "Senior data engineering lead in the Chief Data Office wanting ETL, database design, Databricks and Airflow, matching your pipelines, Databricks views and Oracle warehouse."
     },
     {
       "title": "Lead Platform Engineer",
@@ -184,24 +139,6 @@
       "workMode": "Hybrid",
       "payText": "$209.1k–$324.1k",
       "why": "Leads the Enterprise Data Platform architecture, security and mentoring, like his platform ownership; gaps in Terraform/Azure and deeper Databricks."
-    },
-    {
-      "title": "Senior Data Analyst (Office of the Chief Economist)",
-      "url": "https://builtin.com/job/senior-data-analyst/11847799",
-      "company": "Microsoft",
-      "location": "Redmond, WA",
-      "workMode": "On-site",
-      "payText": "$106.4k–$203.6k",
-      "why": "Power BI semantic models and DAX on Fabric fit his Power BI environment ownership and SQL data modeling."
-    },
-    {
-      "title": "Senior Data Engineer (Digital Marketing Operations)",
-      "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Senior-Data-Engineer_JR2027678",
-      "company": "NVIDIA",
-      "location": "Remote (US)",
-      "workMode": "Remote",
-      "payText": "$168k–$270.3k",
-      "why": "Your Airflow, Python and SQL pipelines and governance work carry over to this marketing lakehouse role; Spark, Iceberg and Java/Go would be new."
     },
     {
       "title": "Analytics Engineer 5 - Cloud Games Infrastructure Data Products",
@@ -222,15 +159,6 @@
       "why": "Designs source-of-truth data models and dashboards in SQL and Python, much like your Oracle warehouse and Databricks reporting views."
     },
     {
-      "title": "Analytics Engineer 5 - New Content Experiences DSE",
-      "url": "https://netflix.wd108.myworkdayjobs.com/netflix/job/usa---remote/analytics-engineer-5---new-content-experiences-dse_jr41896-1",
-      "company": "Netflix",
-      "location": "USA - Remote",
-      "workMode": "Remote",
-      "payText": "$330k–$566k",
-      "why": "Builds SQL/Python metrics and tools for Netflix Live; your SQL, Python and dashboard work carries over, though product analytics is newer for you."
-    },
-    {
       "title": "Analytics Engineer 5 - Promotional Media",
       "url": "https://netflix.wd108.myworkdayjobs.com/netflix/job/usa---remote/analytics-engineer-5---promotional-media_jr41927",
       "company": "Netflix",
@@ -238,15 +166,6 @@
       "workMode": "Remote",
       "payText": "$330k–$566k",
       "why": "Builds SQL/Python pipelines and Tableau dashboards and shares tooling across the analytics community, using your Tableau depth and user-group experience."
-    },
-    {
-      "title": "Security Analytics Engineer L5",
-      "url": "https://netflix.wd108.myworkdayjobs.com/Netflix/job/USA---Remote/Security-Analytics-Engineer-L5_JR41881",
-      "company": "Netflix",
-      "location": "USA - Remote",
-      "workMode": "Remote",
-      "payText": "$400k–$680k",
-      "why": "Builds pipelines, risk metrics and dashboards for security teams, combining your data engineering with your BI platform security work (vulnerability remediation, SAML, SOX)."
     },
     {
       "title": "Engineering Manager - Digital Insights",
@@ -258,24 +177,6 @@
       "why": "Manages a data engineering team and prefers BI migration leadership, matching his team lead and Tableau Cloud migration; streaming is new."
     },
     {
-      "title": "Lead Data Engineer, Customer Identity Analytics",
-      "url": "https://careers.nordstrom.com/lead-data-engineer-customer-identity-analytics-hybrid-seattle-wa/job/AA52BC74E7D34954B7A1A2D5F405935F",
-      "company": "Nordstrom",
-      "location": "Seattle, WA",
-      "workMode": "Hybrid",
-      "payText": "$166k–$258k",
-      "why": "Your SQL/Airflow pipelines and Oracle warehouse build cover the core of this lead role; customer identity resolution would be new."
-    },
-    {
-      "title": "Manager, Data Science and Analytics",
-      "url": "https://swooped.co/job-postings/manager-data-science-analytics-remote-petco-7435f",
-      "company": "Petco",
-      "location": "Remote (US)",
-      "workMode": "Remote",
-      "payText": "$134.6k–$194.7k",
-      "why": "Leads a team building data products on Alteryx, Snowflake, SQL and Tableau/Power BI, lining up with your BI platform and team leadership; inventory planning is new."
-    },
-    {
       "title": "Principal Data Engineer - Teamfight Tactics",
       "url": "https://www.riotgames.com/en/j/8187622",
       "company": "Riot Games",
@@ -283,24 +184,6 @@
       "workMode": "On-site",
       "payText": "$209.9k–$293.4k",
       "why": "Owns data architecture, metric definitions and governance in SQL, Airflow and Databricks, matching your warehouse design and medallion governance; also asks for Spark/Scala/Go."
-    },
-    {
-      "title": "Senior Product Manager, Data Products",
-      "url": "https://www.builtinseattle.com/job/senior-product-manager-data-products/11955676",
-      "company": "Salesforce (Slack)",
-      "location": "Seattle, WA",
-      "workMode": "On-site",
-      "payText": "$172.5k–$260.1k",
-      "why": "Asks for a data engineering or analytics background and driving tool adoption, which fits your Airflow/Snowflake/Databricks pipelines and BI adoption across 25,000+ users."
-    },
-    {
-      "title": "Specialist Solution Engineer - Analytics (Tableau)",
-      "url": "https://freehire.me/jobs/specialist-solution-engineer-analytics-tableau-salesforce-dh5oa4me",
-      "company": "Salesforce (Tableau)",
-      "location": "Remote, Pacific Time (WA/CA)",
-      "workMode": "Remote",
-      "payText": "$157k–$210k",
-      "why": "Your 17 years running Tableau, the 61-server scale-out and the 3,000-workbook Tableau Cloud move let you demo the platform as a real owner; may be a repost of the earlier JR358388 role."
     },
     {
       "title": "Sr. Data Engineer, Ground Network Engineering (Business Analytics)",
@@ -313,21 +196,12 @@
     },
     {
       "title": "Senior Engineer, Enterprise Data & Analytics Platform",
-      "url": "https://zapply.jobs/jobs/f70bd831-033f-473a-8a56-ffa49ab471df/",
+      "url": "https://apply.starbucks.com/careers/job/481079640081",
       "company": "Starbucks",
       "location": "Seattle, WA",
-      "workMode": "Hybrid",
-      "payText": "pay not posted",
+      "workMode": "On-site",
+      "payText": "$132.1k–$220.2k",
       "why": "Databricks lakehouse, medallion, Unity Catalog and Genie on the platform he knows, matching his ETL, governance and GenAI work."
-    },
-    {
-      "title": "Online Senior BI Engineer (Sr Data Engineer)",
-      "url": "https://careers.homedepot.com/job/22041826",
-      "company": "The Home Depot",
-      "location": "Virtual / Atlanta, GA",
-      "workMode": "Remote",
-      "payText": "$90k–$180k",
-      "why": "Senior BI/data engineering with 30% team support and mentoring, matching your Python/Airflow/SQL ETL and team-lead work; stack is BigQuery/PySpark."
     },
     {
       "title": "Sr. Data Analyst (24-month Fixed Term)",
@@ -340,7 +214,7 @@
     },
     {
       "title": "Senior Analytics Engineer",
-      "url": "https://zapply.jobs/jobs/bdca0241-58f5-48d7-9a89-dc180715d0a3/",
+      "url": "https://zillow.wd5.myworkdayjobs.com/en-US/Zillow_Group_External/job/Senior-Analytics-Engineer_P751208-1",
       "company": "Zillow",
       "location": "Remote, US",
       "workMode": "Remote",
@@ -353,5 +227,5 @@
     "Oracle",
     "ServiceNow"
   ],
-  "note": "Full scan of your Company_List. Search limits cut the scan short at a couple of employers."
+  "note": "Corrected list: every link now goes to the employer's own job site."
 }
