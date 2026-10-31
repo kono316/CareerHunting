@@ -1,6 +1,6 @@
 {
   "scanDate": "2026-10-30",
-  "checkedAt": "2026-10-31T02:16:03+00:00",
+  "checkedAt": "2026-10-31T04:48:26+00:00",
   "results": [
     {
       "url": "https://blueorigin.wd5.myworkdayjobs.com/blueorigin/job/Greater-Seattle-Area/Senior-Business-Intelligence-Analyst---Finance---Accounting_R73185",
@@ -132,8 +132,8 @@
       "url": "https://careers.homedepot.com/job/23325487/staff-software-engineer-enterprise-data-warehouse-remote-remote/",
       "title": "Staff Software Engineer - Enterprise Data Warehouse (Remote)",
       "company": "The Home Depot",
-      "status": "unknown",
-      "reason": "the site answered 403"
+      "status": "closed",
+      "reason": "the page returns 404"
     },
     {
       "url": "https://job-boards.greenhouse.io/hasbro/jobs/4249909009",
