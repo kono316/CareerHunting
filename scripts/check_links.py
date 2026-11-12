@@ -7,6 +7,7 @@ after the job has closed. Other sites get a page download that looks for redirec
 "no longer available" wording.
 """
 import re
+import time
 import unicodedata
 import urllib.error
 import urllib.parse
@@ -121,8 +122,17 @@ DEAD_PHRASES = (
 )
 
 
+def _fresh(url):
+    """Add a one-time query value so a CDN can't answer a job-data request from its cache."""
+    return f"{url}{'&' if '?' in url else '?'}_={time.time_ns()}"
+
+
 def _get(url, accept="text/html,application/json;q=0.9,*/*;q=0.8"):
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": accept, "Accept-Language": "en-US,en;q=0.9"})
+    # Ask every server and cache along the way for a fresh copy, so a closed job can't look open.
+    req = urllib.request.Request(url, headers={
+        "User-Agent": UA, "Accept": accept, "Accept-Language": "en-US,en;q=0.9",
+        "Cache-Control": "no-cache, no-store, max-age=0", "Pragma": "no-cache",
+    })
     try:
         with urllib.request.urlopen(req, timeout=25) as r:
             return r.status, r.geturl(), r.read(500_000).decode("utf-8", "replace")
@@ -160,7 +170,7 @@ def _greenhouse(p):
     segs = _segments(p.path)
     if len(segs) < 3 or segs[1] != "jobs" or not segs[2].isdigit():
         return None
-    code, _, _ = _get(f"https://boards-api.greenhouse.io/v1/boards/{segs[0]}/jobs/{segs[2]}", accept="application/json")
+    code, _, _ = _get(_fresh(f"https://boards-api.greenhouse.io/v1/boards/{segs[0]}/jobs/{segs[2]}"), accept="application/json")
     if code == 200:
         return "open", "Greenhouse says the posting is live"
     if code == 404:
@@ -172,7 +182,7 @@ def _lever(p):
     segs = _segments(p.path)
     if len(segs) < 2:
         return None
-    code, _, _ = _get(f"https://api.lever.co/v0/postings/{segs[0]}/{segs[1]}", accept="application/json")
+    code, _, _ = _get(_fresh(f"https://api.lever.co/v0/postings/{segs[0]}/{segs[1]}"), accept="application/json")
     if code == 200:
         return "open", "Lever says the posting is live"
     if code == 404:

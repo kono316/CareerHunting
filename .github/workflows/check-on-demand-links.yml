@@ -1,0 +1,44 @@
+name: Check on-demand job links
+
+# Runs when the on-demand job scan saves a new job-scan/on-demand.json, or by hand from the Actions tab.
+# Loads every job link live, with no cached copies, and saves the results to
+# job-scan/on-demand-link-check.json, which the scan reads back so it only lists working links.
+# Sends no email. Kept separate from the Monday scan's files so the two never overwrite each other.
+on:
+  push:
+    branches: [main]
+    paths: ["job-scan/on-demand.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: on-demand-job-links
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check links live
+        run: python scripts/check_on_demand_links.py job-scan/on-demand.json job-scan/on-demand-link-check.json
+      - name: Save the link check results
+        if: always()
+        run: |
+          if [ -f job-scan/on-demand-link-check.json ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add job-scan/on-demand-link-check.json
+            if ! git diff --cached --quiet; then
+              git commit -m "On-demand link check $(python -c "import json;print(json.load(open('job-scan/on-demand.json')).get('runId',''))")"
+              for attempt in 1 2 3; do
+                git pull --rebase origin main && git push && break
+                sleep 5
+              done
+            fi
+          fi
