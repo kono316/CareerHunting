@@ -6,6 +6,10 @@ Each Monday a scheduled Claude task scans 81 employers' openings, checks each po
 
 All leads and their statuses also live on the Monday Job Leads tracker page.
 
+## On-demand job scan
+
+Run the **On-demand job scan** scheduled task whenever you want a fresh list (it has no schedule; start it with "Run now"). It reads `Company_List` from a fresh clone of `main`, so your latest edits always count, and searches every employer for jobs that fit my resume: US remote or Seattle area, $150k+ a year (or $72+/hour for contracts), full-time or contract. It saves the matches to `job-scan/on-demand.json`, which starts the **Check on-demand job links** workflow. That workflow loads every link live, asking servers and caches for a fresh copy, and saves the results to `job-scan/on-demand-link-check.json`. The scan then posts only the links that passed, grouped into Excellent fits and Good fits. These files are separate from the Monday scan's, so the two never overwrite each other.
+
 ## Gmail credentials (repository secrets)
 
 Settings → Secrets and variables → Actions → New repository secret. Use one of:
@@ -25,7 +29,10 @@ Never commit keys or passwords to the repo files.
 - `scripts/send_job_email.py`: checks the links, then builds and sends the email (Python standard library only)
 - `scripts/check_links.py`: decides whether each job link is open, closed or couldn't be checked
 - `job-scan/link-check.json`: the latest link check results, saved by the workflow
-- `Company_List`: the employers the Monday scan covers; add or remove a line to change the list
+- `job-scan/on-demand.json`: the most recent on-demand scan results, written by the on-demand task
+- `scripts/check_on_demand_links.py`: checks every link in `on-demand.json` and saves `job-scan/on-demand-link-check.json`
+- `.github/workflows/check-on-demand-links.yml`: runs that check when `on-demand.json` changes, or by hand from the Actions tab
+- `Company_List`: the employers both scans cover; add or remove a line to change the list
 - `.github/workflows/email-job-matches.yml`: runs the script when `latest.json` changes, or by hand from the Actions tab (choose "Only check the links" to skip the email)
 
 Preview an email without sending it: `python scripts/send_job_email.py job-scan/latest.json --preview`
