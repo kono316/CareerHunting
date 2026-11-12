@@ -2,7 +2,7 @@
 
 Emails the weekly job-match list from the Monday job scan.
 
-Each Monday a scheduled Claude task scans 76 employers' openings, checks each posting against my resume and requirements (Seattle area or remote, $175k+ base, senior roles in BI platforms, Tableau, data engineering and analytics enablement), and saves the results to `job-scan/latest.json`. That commit starts the **Email job matches** workflow. It checks every job link first (Workday, Greenhouse and Lever postings through each site's own job data, other sites by loading the page), leaves closed postings out, sends the list through Gmail, and saves the results to `job-scan/link-check.json` so the Monday scan can mark closed jobs on the tracker.
+Each Monday a scheduled Claude task scans 81 employers' openings, checks each posting against my resume and requirements (Seattle area or remote, $175k+ base, senior roles in BI platforms, Tableau, data engineering and analytics enablement), and saves the results to `job-scan/latest.json`. That commit starts the **Email job matches** workflow. It checks every job link first (Workday, Greenhouse and Lever postings through each site's own job data, other sites by loading the page), leaves closed postings out, sends the list through Gmail, and saves the results to `job-scan/link-check.json` so the Monday scan can mark closed jobs on the tracker.
 
 All leads and their statuses also live on the Monday Job Leads tracker page.
 
