@@ -1,45 +1,27 @@
 {
-  "runId": "test-2026-11-12T20:00Z",
+  "runId": "test-greenhouse-2026-11-12",
   "date": "2026-11-12",
   "companyListCommit": "",
   "employersInList": 81,
   "employersChecked": 0,
   "excellent": [
     {
-      "title": "Senior Manager of Data Engineering & Business Intelligence, Alexa Audio",
-      "url": "https://amazon.jobs/en/jobs/10411752/senior-manager-of-data-engineering-business-intelligence-alexa-audio",
-      "company": "Amazon",
-      "location": "Seattle, WA",
-      "workMode": "On-site",
-      "payText": "$202.3k–$273.7k"
+      "title": "Greenhouse test",
+      "url": "https://job-boards.greenhouse.io/hasbro/jobs/4457276009",
+      "company": "Wizards of the Coast"
     },
     {
-      "title": "Sr. Manager, Data and Insights, US Prime & Marketing Technology",
-      "url": "https://amazon.jobs/en/jobs/10569700/sr-manager-data-and-insights-us-prime-marketing-technology",
-      "company": "Amazon",
-      "location": "Seattle, WA",
-      "workMode": "On-site",
-      "payText": "$170.6k–$230.8k"
-    }
-  ],
-  "good": [
-    {
-      "title": "Senior Business Intelligence Analyst - Finance & Accounting",
-      "url": "https://blueorigin.wd5.myworkdayjobs.com/blueorigin/job/Greater-Seattle-Area/Senior-Business-Intelligence-Analyst---Finance---Accounting_R73185",
-      "company": "Blue Origin",
-      "location": "Renton, WA",
-      "workMode": "On-site",
-      "payText": "$145.2k–$203.3k"
+      "title": "Greenhouse test",
+      "url": "https://job-boards.greenhouse.io/pokemoncareers/jobs/8040237003",
+      "company": "Pokemon"
     },
     {
-      "title": "Sr. Analyst, Marketing & Growth Analytics",
-      "url": "https://crowdstrike.wd5.myworkdayjobs.com/en-US/crowdstrikecareers/job/Sr-Analyst--Marketing---Growth-Analytics--Sunnyvale--CA--US-Remote-_R30111",
-      "company": "CrowdStrike",
-      "location": "US Remote",
-      "workMode": "Remote",
-      "payText": "$175k–$185k"
+      "title": "Greenhouse test",
+      "url": "https://job-boards.greenhouse.io/spacex/jobs/8482128002?gh_jid=8482128002",
+      "company": "Space X"
     }
   ],
+  "good": [],
   "couldntCheck": [],
-  "note": "Test of the on-demand link check using links from the Oct 31 scan. The first real on-demand scan replaces this file."
+  "note": "Test of the Greenhouse check. The first real on-demand scan replaces this file."
 }
