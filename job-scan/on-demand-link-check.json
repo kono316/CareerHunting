@@ -1,0 +1,39 @@
+{
+  "runId": "test-2026-11-12T20:00Z",
+  "date": "2026-11-12",
+  "checkedAt": "2026-11-12T19:59:36+00:00",
+  "results": [
+    {
+      "url": "https://amazon.jobs/en/jobs/10411752/senior-manager-of-data-engineering-business-intelligence-alexa-audio",
+      "title": "Senior Manager of Data Engineering & Business Intelligence, Alexa Audio",
+      "company": "Amazon",
+      "group": "excellent",
+      "status": "open",
+      "reason": "the page loads"
+    },
+    {
+      "url": "https://amazon.jobs/en/jobs/10569700/sr-manager-data-and-insights-us-prime-marketing-technology",
+      "title": "Sr. Manager, Data and Insights, US Prime & Marketing Technology",
+      "company": "Amazon",
+      "group": "excellent",
+      "status": "open",
+      "reason": "the page loads"
+    },
+    {
+      "url": "https://blueorigin.wd5.myworkdayjobs.com/blueorigin/job/Greater-Seattle-Area/Senior-Business-Intelligence-Analyst---Finance---Accounting_R73185",
+      "title": "Senior Business Intelligence Analyst - Finance & Accounting",
+      "company": "Blue Origin",
+      "group": "good",
+      "status": "open",
+      "reason": "Workday says the posting is live"
+    },
+    {
+      "url": "https://crowdstrike.wd5.myworkdayjobs.com/en-US/crowdstrikecareers/job/Sr-Analyst--Marketing---Growth-Analytics--Sunnyvale--CA--US-Remote-_R30111",
+      "title": "Sr. Analyst, Marketing & Growth Analytics",
+      "company": "CrowdStrike",
+      "group": "good",
+      "status": "closed",
+      "reason": "Workday no longer has this posting"
+    }
+  ]
+}
